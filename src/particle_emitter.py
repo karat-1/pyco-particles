@@ -270,7 +270,7 @@ class ParticleEmitter:
         """
         self.particles = [p for p in self.particles if self.room_rect.collidepoint(p.position)]
 
-        for particle in self.particles:
+        for particle in self.particles[:]:
             if self.p_base.sin_x:
                 particle.position.x += particle.direction * (
                         (math.sin(self.time_elapsed * particle.frequency + particle.phase) * 1) / 8
